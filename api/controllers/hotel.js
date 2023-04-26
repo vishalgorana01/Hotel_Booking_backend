@@ -3,7 +3,7 @@ const express = require('express');
 const multer = require('multer');
 // const {v4: uuidv4} = require('uui')
 
-const upload = multer({ dest: 'uploads/' })
+// const upload = multer({ dest: 'uploads/' })
 
 //  create Hotel
 const creatHotel = async(req, resp, next)=>{

@@ -7,7 +7,7 @@ const verify = require("../utils/verifyToken.js");
 const router = express.Router();
 const multer = require('multer')
 
-const upload = multer({ dest: 'uploads/' })
+const upload = multer({ dest: '/tmp' })
 
 const cpUpload = upload.fields([{ name: 'comfortRoomImages', maxCount: 12 }, { name: 'deluxeRoomImages', maxCount: 12 }, { name: 'luxuryRoomImages', maxCount: 12 }, { name: 'hotelImages', maxCount: 12 }])
 
