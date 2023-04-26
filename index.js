@@ -6,7 +6,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser')
 const {mongoose} = require("mongoose");
 
-
 const authRoute = require("./api/routes/auth.js");
 const usersRoute = require("./api/routes/users.js");
 const hotelsRoute = require("./api/routes/hotels.js");
