@@ -4,11 +4,9 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
 const bodyParser = require('body-parser')
+const {mongoose} = require("mongoose");
 
-app.use(cors({}));
-app.use(bodyParser.json())
 
-app.use('/uploads', express.static('uploads'))
 const authRoute = require("./api/routes/auth.js");
 const usersRoute = require("./api/routes/users.js");
 const hotelsRoute = require("./api/routes/hotels.js");
@@ -17,10 +15,10 @@ const requestsRoute = require("./api/routes/requests.js")
 
 dotenv.config();
 app.use(cookieParser());
+app.use(cors({}));
+app.use(bodyParser.json())
 
-const mongoose = require("mongoose");
-const { json } = require("express");
-
+app.use('/uploads', express.static('uploads'))
 mongoose.set('strictQuery', true);
 
 const connect = async ()=>{
@@ -49,6 +47,9 @@ app.use(express.json());
 //     // rsp.send("<h1>auth</h1>")
 //     console.log(req.body);
 // })
+app.use('/', (req,resp)=>{
+    resp.send("hello welcome")
+})
 app.use("/api/auth",authRoute);
 app.use("/api/users",usersRoute);
 app.use("/api/hotels",hotelsRoute);
