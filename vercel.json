@@ -2,7 +2,7 @@
     "version": 2,
     "name": "Hotel-Booking",
     "builds": [
-        {"src": "app.js", "use": "@vercel/node"}
+        {"src": "index.js", "use": "@vercel/node"}
     ],
     "rewrites": [{ "source": "/(.*)", "destination": "index.js" }]
 }
