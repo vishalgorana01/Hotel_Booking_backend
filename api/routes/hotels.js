@@ -5,15 +5,15 @@ const createError  = require("../utils/error.js");
 const verify = require("../utils/verifyToken.js");
 
 const router = express.Router();
-// const multer = require('multer')
+const multer = require('multer')
 
-// const upload = multer({ dest: 'uploads/' })
+const upload = multer({ dest: 'uploads/' })
 
-// const cpUpload = upload.fields([{ name: 'comfortRoomImages', maxCount: 12 }, { name: 'deluxeRoomImages', maxCount: 12 }, { name: 'luxuryRoomImages', maxCount: 12 }, { name: 'hotelImages', maxCount: 12 }])
+const cpUpload = upload.fields([{ name: 'comfortRoomImages', maxCount: 12 }, { name: 'deluxeRoomImages', maxCount: 12 }, { name: 'luxuryRoomImages', maxCount: 12 }, { name: 'hotelImages', maxCount: 12 }])
 
 // create
 // router.post("/",verify.verifyAdmin, constrollers.creatHotel);
-router.post("/", constrollers.creatHotel);
+router.post("/", cpUpload, constrollers.creatHotel);
 
 
 // update
