@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(cors({}));
 app.use(bodyParser.json())
 
-// app.use('/uploads', express.static('uploads'))
+app.use('/uploads', express.static('uploads'))
 mongoose.set('strictQuery', true);
 
 const connect = async ()=>{
@@ -42,13 +42,7 @@ mongoose.connection.on("connected", ()=>{
 
 // middlewares
 app.use(express.json());
-// app.post("/register", (req,rsp)=>{
-//     // rsp.send("<h1>auth</h1>")
-//     console.log(req.body);
-// })
-app.use('/', (req,resp)=>{
-    resp.send("hello welcome")
-})
+
 app.use("/api/auth",authRoute);
 app.use("/api/users",usersRoute);
 app.use("/api/hotels",hotelsRoute);
