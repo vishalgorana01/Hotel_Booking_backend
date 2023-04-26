@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(cors({}));
 app.use(bodyParser.json())
 
-app.use('/uploads', express.static('uploads'))
+// app.use('/uploads', express.static('uploads'))
 mongoose.set('strictQuery', true);
 
 const connect = async ()=>{
