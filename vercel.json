@@ -1,10 +1,10 @@
 {
     "version": 2,
-    "name": "Hotel-Booking",
-    "builds": [
-        {"src": "index.js", "use": "@vercel/node"}
-    ],
-    "routes": [
-        {"src": "/(.*)", "dest": "/index.js"}
-    ]
+   "name": "hotel-booking",
+   "builds": [
+      { "src": "index.js", "use": "@vercel/node" }
+   ],
+   "routes": [
+      { "src": "/(.*)", "dest": "index.js" }
+   ]
 }
