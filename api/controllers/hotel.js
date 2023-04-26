@@ -1,9 +1,9 @@
 const hotel = require("../models/Hotels.js");
 const express = require('express');
-const multer = require('multer');
+// const multer = require('multer');
 // const {v4: uuidv4} = require('uui')
 
-const upload = multer({ dest: 'uploads/' })
+// const upload = multer({ dest: 'uploads/' })
 
 //  create Hotel
 const creatHotel = async(req, resp, next)=>{
@@ -12,24 +12,24 @@ const creatHotel = async(req, resp, next)=>{
     console.log(req.files['comfortRoomImages'][0])
 
     let comfortRoomImagesPath = [];
-    for(let i=0; i<req.files['comfortRoomImages'].length; i++){
-        comfortRoomImagesPath.push(req.files['comfortRoomImages'][i].path)
-    }
+    // for(let i=0; i<req.files['comfortRoomImages'].length; i++){
+    //     comfortRoomImagesPath.push(req.files['comfortRoomImages'][i].path)
+    // }
 
     let deluxeRoomImagesPath = [];
-    for(let i=0; i<req.files['deluxeRoomImages'].length; i++){
-        deluxeRoomImagesPath.push(req.files['deluxeRoomImages'][i].path)
-    }
+    // for(let i=0; i<req.files['deluxeRoomImages'].length; i++){
+    //     deluxeRoomImagesPath.push(req.files['deluxeRoomImages'][i].path)
+    // }
 
     let luxuryRoomImagesPath = [];
-    for(let i=0; i<req.files['luxuryRoomImages'].length; i++){
-        luxuryRoomImagesPath.push(req.files['luxuryRoomImages'][i].path)
-    }
+    // for(let i=0; i<req.files['luxuryRoomImages'].length; i++){
+    //     luxuryRoomImagesPath.push(req.files['luxuryRoomImages'][i].path)
+    // }
 
     let hotelImagesPath = [];
-    for(let i=0; i<req.files['hotelImages'].length; i++){
-        hotelImagesPath.push(req.files['hotelImages'][i].path)
-    }
+    // for(let i=0; i<req.files['hotelImages'].length; i++){
+    //     hotelImagesPath.push(req.files['hotelImages'][i].path)
+    // }
 
     const newHotel = new hotel({
         name: req.body.name,
