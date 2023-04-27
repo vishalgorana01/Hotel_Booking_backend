@@ -17,13 +17,11 @@ app.use(cookieParser());
 app.use(cors({}));
 app.use(bodyParser.json())
 
-app.use('/uploads', express.static('uploads'))
 mongoose.set('strictQuery', true);
 
 const connect = async ()=>{
     try{
-        console.log(process.env.MONGODB_URI)
-        await mongoose.connect(process.env.MONGODB_URI)
+        await mongoose.connect('mongodb+srv://VISHALATLAS:Vishal_Atlas_514@cluster0.vf7axhx.mongodb.net/Hotel_Booking?retryWrites=true&w=majority')
         console.log("Connected to mongoDB");
     }catch(error){
         console.log(error)
