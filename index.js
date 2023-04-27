@@ -13,6 +13,7 @@ const roomsRoute = require("./api/routes/rooms.js");
 const requestsRoute = require("./api/routes/requests.js")
 
 dotenv.config();
+app.use(express.json());
 app.use(cookieParser());
 app.use(cors({}));
 app.use(bodyParser.json())
@@ -39,7 +40,6 @@ mongoose.connection.on("connected", ()=>{
 
 
 // middlewares
-app.use(express.json());
 // app.use('/', (req,resp)=>{
 //     resp.send("hello welcome")
 // })
