@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const user = require("../models/Users.js");
+const User = require("../models/Users.js");
 const createError = require('../utils/error.js');
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
@@ -13,7 +13,8 @@ const register = async (req, res, next) => {
         const hashed = await bcrypt.hash(req.body.password, saltRounds);
         // const someOtherPlaintextPassword = 'not_bacon';
 
-        const newUser = new user({
+        console.log(req.body)
+        const newUser = new User({
             userName: req.body.userName,
             email: req.body.userEmail,
             password: hashed,
@@ -31,8 +32,8 @@ const register = async (req, res, next) => {
 const login = async (req, resp, next) => {
     try {
         console.log(req.body)
-        const loginByUserName = await user.findOne({ userName: req.body.userName_Email });
-        const loginByEmail = await user.findOne({ email: req.body.userName_Email });
+        const loginByUserName = await User.findOne({ userName: req.body.userName_Email });
+        const loginByEmail = await User.findOne({ email: req.body.userName_Email });
         console.log(loginByEmail);
         console.log(loginByUserName);
 
