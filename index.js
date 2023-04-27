@@ -49,20 +49,20 @@ app.use("/api/hotels",hotelsRoute);
 app.use("/api/rooms",roomsRoute);
 app.use("/api/requests", requestsRoute);
 
-app.use((error,req,res,next)=>{
-    console.log("Hey, iam middle ware");
-    // next()
-    const errorStatus = error.status || 500;
-    const errorMessage = error.message || "Something went wrong!"
-    return res.status(errorStatus).json(
-        {
-            success: false,
-            status: errorStatus,
-            message: errorMessage,
-            stack: error.stack
-        }
-    );
-})
+// app.use((error,req,res,next)=>{
+//     console.log("Hey, iam middle ware");
+//     // next()
+//     const errorStatus = error.status || 500;
+//     const errorMessage = error.message || "Something went wrong!"
+//     return res.status(errorStatus).json(
+//         {
+//             success: false,
+//             status: errorStatus,
+//             message: errorMessage,
+//             stack: error.stack
+//         }
+//     );
+// })
 
 app.listen(8800, ()=>{
     connect();
