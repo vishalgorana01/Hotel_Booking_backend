@@ -39,7 +39,7 @@ const getUser = async(req, resp, next)=>{
 
 // Get all user
 const getAllUser = async(req, resp, next)=>{
-    console.log("get all users")
+    console.log("get all users from database")
     try {
         const getAll = await user.find();
         resp.status(200).json(getAll);
