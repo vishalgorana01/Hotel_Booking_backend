@@ -2,12 +2,11 @@
   "name": "booking-app",
   "version": "1.0.0",
   "description": "",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "nodemon index.js",
-    "start": "nodemon index.js"
+    "serve": "node index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
