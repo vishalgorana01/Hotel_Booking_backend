@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(cors({}));
 app.use(bodyParser.json())
 
-mongoose.set('strictQuery', true);
+// mongoose.set('strictQuery', true);
 
 const connect = async ()=>{
     try{
