@@ -30,6 +30,14 @@ router.delete('/:_id', verify.verifyUser, user.deleteUser);
 router.get('/:_id', user.getUser);
 
 // get all user
-router.get('/', user.getAllUser);
+router.get('/', async(req, resp, next)=>{
+    console.log("get all users from database")
+    try {
+        const getAll = await user.find();
+        resp.status(200).json(getAll);
+    } catch (error) {
+        next(error);
+    }
+});
 
 module.exports = router;
