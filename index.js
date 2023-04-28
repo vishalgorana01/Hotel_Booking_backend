@@ -30,6 +30,9 @@ const connect = async ()=>{
     }
 }
 
+// connect to MongoDb
+connect();
+
 mongoose.connection.on("disconnected", ()=>{
     console.log("mongodb disconnected!");
 })
@@ -62,6 +65,6 @@ app.use((error,req,res,next)=>{
 })
 
 app.listen(8800, ()=>{
-    connect();
+    // connect();
     console.log("connected to backened");
 });
