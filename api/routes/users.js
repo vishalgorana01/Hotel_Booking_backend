@@ -2,6 +2,7 @@ const express = require("express");
 const user = require('../controllers/user.js');
 const verify = require("../utils/verifyToken.js");
 const router = express.Router();
+const User = require("../models/Users.js")
 
 // router.get("/", (req,resp)=>{
 //     resp.send("Hello, this is users endpoint");
@@ -33,7 +34,7 @@ router.get('/:_id', user.getUser);
 router.get('/', async(req, resp, next)=>{
     console.log("get all users from database")
     try {
-        const getAll = await user.find();
+        const getAll = await User.find();
         resp.status(200).json(getAll);
     } catch (error) {
         next(error);
