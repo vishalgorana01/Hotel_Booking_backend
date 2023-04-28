@@ -22,7 +22,7 @@ app.use(bodyParser.json())
 
 const connect = async ()=>{
     try{
-        await mongoose.connect('mongodb+srv://VISHALATLAS:Vishal_Atlas_514@cluster0.vf7axhx.mongodb.net/Hotel_Booking?retryWrites=true&w=majority')
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("Connected to mongoDB");
     }catch(error){
         console.log(error)
