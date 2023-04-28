@@ -2,7 +2,6 @@ const express = require("express");
 const user = require('../controllers/user.js');
 const verify = require("../utils/verifyToken.js");
 const router = express.Router();
-const User = require("../models/Users.js")
 
 // router.get("/", (req,resp)=>{
 //     resp.send("Hello, this is users endpoint");
@@ -31,14 +30,6 @@ router.delete('/:_id', verify.verifyUser, user.deleteUser);
 router.get('/:_id', user.getUser);
 
 // get all user
-router.get('/', async(req, resp, next)=>{
-    console.log("get all users from database")
-    try {
-        const getAll = await User.find();
-        resp.status(200).json(getAll);
-    } catch (error) {
-        next(error);
-    }
-});
+router.get('/', user.getAllUser);
 
 module.exports = router;
