@@ -17,8 +17,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "http://hotel-booking-backend-gamma.vercel.app/",
-    credentials: true
+    origin: "*",
+    credentials: true,
 }));
 
 app.use(bodyParser.json())
