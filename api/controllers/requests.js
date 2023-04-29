@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const sendRequests = async (req, resp, next)=>{
+    // req.body = JSON.parse(req.headers.body)
     console.log(req.body);
     // const str = JSON.stringify(req.body.startDate)
     // console.log(JSON.parse(str)[0])

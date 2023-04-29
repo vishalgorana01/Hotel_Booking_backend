@@ -13,14 +13,14 @@ const roomsRoute = require("./api/routes/rooms.js");
 const requestsRoute = require("./api/routes/requests.js")
 
 dotenv.config();
-app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
     origin: "*",
-    credentials: true,
 }));
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json())
 
 mongoose.set('strictQuery', true);
