@@ -15,13 +15,15 @@ const requestsRoute = require("./api/routes/requests.js")
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(cors({
-    origin: "*"
+    origin: "*",
+    credentials: true
 }));
+
 app.use(bodyParser.json())
 
-// mongoose.set('strictQuery', true);
-
+mongoose.set('strictQuery', true);
 const connect = async ()=>{
     try{
         await mongoose.connect(process.env.MONGODB_URI)
