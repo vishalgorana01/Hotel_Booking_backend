@@ -18,6 +18,10 @@ app.use(cookieParser());
 app.use(cors({
     origin: '*',
     credentials: true,
+    "Access-Control-Allow-Origin": "*",
+"Access-Control-Allow-Methods":["POST", "PUT", "PATCH", "GET", "DELETE", "OPTIONS"],
+"Access-Control-Allow-Headers": "*"
+
 }));
 
 app.use(express.json());
