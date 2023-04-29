@@ -15,19 +15,10 @@ const requestsRoute = require("./api/routes/requests.js")
 dotenv.config();
 app.use(cookieParser());
 
-app.use(cors({
-    origin: '*',
-    credentials: true,
-    "Access-Control-Allow-Origin": "*",
-"Access-Control-Allow-Methods":["POST", "PUT", "PATCH", "GET", "DELETE", "OPTIONS"],
-"Access-Control-Allow-Headers": "*"
-
-}));
-
-app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({extended: false}));
-app.use(bodyParser.json())
-
+app.use(express.json());
+// app.use(bodyParser.json())
 mongoose.set('strictQuery', true);
 const connect = async ()=>{
     try{
