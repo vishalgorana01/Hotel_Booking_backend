@@ -6,6 +6,7 @@ const createError = require('../utils/error.js');
 const mail = require('../controllers/sendMail.js');
 const Cryptr = require('cryptr');
 const cryptr = new Cryptr('myTotallySecretKey');
+const nodemailer = require('nodemailer')
 
 //find user by email
 const findByemail = async (req, resp, next) => {
@@ -28,14 +29,34 @@ const findByemail = async (req, resp, next) => {
 const findUser = async (req, resp, next) => {
     try {
         console.log(req.body.email)
-        mail.sendMail(req.body.email, req.body.Reset_id)
-            .then(() => {
-                resp.status(200).send("Reset link is send to your registered email");
-            })
-            .catch((err)=> {
-                console.log(err)
-                resp.status(400).json(err)
-            })
+
+        // connect with smtp; 
+        const transporter = await nodemailer.createTransport({
+            host: 'smtp.office365.com',
+            port: 587,
+            auth: {
+                user: 'hotelio43@outlook.com',
+                pass: 'owner_hotelio_43'
+            }
+        });
+
+        let mailDetails = {
+            from: 'hotelio43@outlook.com',
+            to: `${req.body.email}`,
+            subject: 'Reset Password',
+            text: `Click on the below to Reset Your Password :- 
+        https://hotel-booking-frontend-zeta.vercel.app/ResetPassword/?id=${req.body.Reset_id}`,
+        };
+
+        transporter.sendMail(mailDetails, function (err, data) {
+            if (err) {
+                console.log(err);
+                resp.status(500).json(err);
+            } else {
+                console.log('Email sent successfully');
+                resp.status(200).send("email is successfully sended");
+            }
+        });
     } catch (error) {
         next(error)
     }

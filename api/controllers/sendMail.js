@@ -22,7 +22,6 @@ const sendMail = async(email, Reset_id)=> {
     transporter.sendMail(mailDetails, function(err, data) {
         if(err) {
             console.log(err);
-            
         } else {
             console.log('Email sent successfully');
         }
