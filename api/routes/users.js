@@ -20,8 +20,15 @@ const router = express.Router();
 //     resp.send("hello admin, you are able to do")
 // })
 
+// find user by email
+router.post('/findbyemail', user.findByemail)
+
+// forgot password
+router.post('/find', user.findUser)
+
 // update user
-router.put('/:_id', verify.verifyUser, user.updateUser);
+// router.put('/:_id', verify.verifyUser, user.updateUser);
+router.put('/updateUser/:_id', user.updateUser);
 
 // delete user
 router.delete('/:_id', verify.verifyUser, user.deleteUser);
